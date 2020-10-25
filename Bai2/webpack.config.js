@@ -4,18 +4,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = (env, agrv) => {
   const isDev = agrv.mode === 'development'
   return {
-    entry: './src/index.js',
+    entry: './src/index.ts',
     module: {
       rules: [
         {
-          test: /\.(js|jsx)$/,
-          exclude: /(node_modules|bower_components)/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env']
-            }
-          }
+          test: /\.(ts|tsx)$/,
+          use: 'ts-loader',
+          exclude: /node_modules/
         },
         {
           test: /\.(s[ac]ss|css)$/,
@@ -44,7 +39,13 @@ module.exports = (env, agrv) => {
         }
       ]
     },
-    resolve: { extensions: ['.js', '.jsx'] },
+    resolve: {
+      extensions: ['.ts', '.tsx', '.js', '.jsx'],
+      alias: {
+        '@': path.resolve('src'),
+        '@@': path.resolve()
+      }
+    },
     output: {
       path: path.resolve('dist'),
       publicPath: '',
@@ -55,7 +56,6 @@ module.exports = (env, agrv) => {
       contentBase: 'public',
       port: 3000,
       hot: true,
-      open: true,
       watchContentBase: true
     },
     plugins: [
