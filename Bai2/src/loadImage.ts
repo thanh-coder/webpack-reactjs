@@ -1,7 +1,6 @@
 import logo from './logo.jpg'
 
 const component = () => {
-  console.log(logo)
   const element = document.createElement('div')
   const webpackLogo = new Image()
   webpackLogo.src = logo

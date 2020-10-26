@@ -18,7 +18,8 @@
     "url": "https://github.com/duthanhduoc/Training-Webpack/issues"
   },
   "homepage": "https://github.com/duthanhduoc/Training-Webpack#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "css-loader": "^5.0.0",
     "file-loader": "^6.1.1",
     "html-webpack-plugin": "^4.5.0",
