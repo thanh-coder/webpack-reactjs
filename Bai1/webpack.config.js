@@ -47,7 +47,16 @@ module.exports = (env, agrv) => {
     output: {
       path: path.resolve('dist'),
       publicPath: '../dist/',
-      filename: 'bundle.js'
+      filename: 'bundle.js',
+      environment: {
+        arrowFunction: false,
+        bigIntLiteral: false,
+        const: false,
+        destructuring: false,
+        dynamicImport: false,
+        forOf: false,
+        module: false
+      }
     },
     devtool: isDev ? 'source-map' : false,
     devServer: {
