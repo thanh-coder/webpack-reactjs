@@ -3,7 +3,7 @@
     "target": "ES5",
     "allowJs": true,
     "strict": true,
-    "module": "CommonJS",
+    "module": "ESNext",
     "moduleResolution": "node",
     "noImplicitAny": false,
     "sourceMap": true,

@@ -49,7 +49,16 @@ module.exports = (env, agrv) => {
     output: {
       path: path.resolve('dist'),
       publicPath: '',
-      filename: 'bundle.[hash:6].js'
+      filename: 'bundle.[hash:6].js',
+      environment: {
+        arrowFunction: false,
+        bigIntLiteral: false,
+        const: false,
+        destructuring: false,
+        dynamicImport: false,
+        forOf: false,
+        module: false
+      }
     },
     devtool: isDev ? 'source-map' : false,
     devServer: {
