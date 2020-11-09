@@ -1,0 +1,21 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": [
+    // "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2020
+  },
+  "rules": {
+    "no-unused-vars": "warn",
+    "react/display-name": "off",
+    "react/prop-types": "off"
+  }
+}

@@ -1,7 +1,6 @@
 import React, { lazy, Suspense } from 'react'
 import AuthenticatedGuard from '@/guards/AuthenticatedGuard'
 const Home = lazy(() => import('@/pages/Home/Home'))
-// import Home from '@/pages/Home/Home'
 import { Switch } from 'react-router-dom'
 import { PATH } from '@/constants/paths'
 

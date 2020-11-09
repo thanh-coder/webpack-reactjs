@@ -1,10 +1,13 @@
 const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin
 
 module.exports = (env, agrv) => {
   const isDev = agrv.mode === 'development'
@@ -22,14 +25,16 @@ module.exports = (env, agrv) => {
     }),
     new MiniCssExtractPlugin({
       filename: isDev ? '[name].css' : 'static/css/[name].[contenthash:6].css'
-    })
+    }),
+    new webpack.ProgressPlugin()
   ]
   const prodPlugins = [
     ...basePlugins,
     new CleanWebpackPlugin(),
     new CompressionPlugin({
       test: /\.(css|js|html|svg)$/
-    })
+    }),
+    new BundleAnalyzerPlugin()
   ]
 
   return {
@@ -38,7 +43,7 @@ module.exports = (env, agrv) => {
       rules: [
         {
           test: /\.(ts|tsx)$/,
-          use: 'ts-loader',
+          use: ['eslint-loader', 'ts-loader'],
           exclude: /node_modules/
         },
         {
@@ -110,7 +115,10 @@ module.exports = (env, agrv) => {
       watchContentBase: true,
       historyApiFallback: true
     },
-    plugins: isDev ? basePlugins : prodPlugins
+    plugins: isDev ? basePlugins : prodPlugins,
+    performance: {
+      maxEntrypointSize: 800000
+    }
     // optimization: {
     //   minimize: true
     // }
