@@ -1,8 +1,8 @@
-import React, { lazy, Suspense } from 'react'
-import AuthenticatedGuard from '@/guards/AuthenticatedGuard'
-const Home = lazy(() => import('@/pages/Home/Home'))
-import { Switch } from 'react-router-dom'
-import { PATH } from '@/constants/paths'
+import React, { lazy, Suspense } from "react"
+import { Switch } from "react-router-dom"
+import AuthenticatedGuard from "@/guards/AuthenticatedGuard"
+import { PATH } from "@/constants/paths"
+const Home = lazy(() => import("@/pages/Home/Home"))
 
 export default function HomeRoutes() {
   return (

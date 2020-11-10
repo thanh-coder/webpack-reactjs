@@ -1,21 +1,19 @@
 {
-  "env": {
-    "browser": true,
-    "node": true
-  },
-  "extends": [
-    // "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended"
-  ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": 2020
-  },
+  "extends": ["react-app", "prettier"],
+  "plugins": ["react", "prettier"],
   "rules": {
-    "no-unused-vars": "warn",
-    "react/display-name": "off",
-    "react/prop-types": "off"
+    "prettier/prettier": [
+      "warn",
+      {
+        "arrowParens": "avoid",
+        "semi": false,
+        "trailingComma": "none",
+        "endOfLine": "lf",
+        "tabWidth": 2,
+        "printWidth": 80,
+        "useTabs": false
+      }
+    ],
+    "no-console": "warn"
   }
 }

@@ -1,6 +1,6 @@
-import * as types from './App.constants'
-import { LOGIN_SUCCESS } from '@/pages/Login/Login.constants'
-import produce from 'immer'
+import * as types from "./App.constants"
+import { LOGIN_SUCCESS } from "@/pages/Login/Login.constants"
+import produce from "immer"
 
 const initialState = {
   isAuthenticated: false,
@@ -8,10 +8,10 @@ const initialState = {
 }
 
 export const AppReducer = (state = initialState, action) =>
-  produce(state, (draft) => {
+  produce(state, draft => {
     switch (action.type) {
       case types.LOGOUT:
-        localStorage.removeItem('token')
+        localStorage.removeItem("token")
         draft.isAuthenticated = false
         break
       case LOGIN_SUCCESS:

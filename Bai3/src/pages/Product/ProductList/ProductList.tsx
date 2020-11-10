@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
-import { connect, ConnectedProps } from 'react-redux'
-import MainLayout from '@/layouts/MainLayout'
-import { getProductList } from './ProductList.thunks'
-import { Link } from 'react-router-dom'
-import { PATH } from '@/constants/paths'
-import { handlePrice } from '@/helpers/string'
-import { TableContainer } from './ProductList.styles'
+import React, { useEffect } from "react"
+import { connect, ConnectedProps } from "react-redux"
+import MainLayout from "@/layouts/MainLayout"
+import { getProductList } from "./ProductList.thunks"
+import { Link } from "react-router-dom"
+import { PATH } from "@/constants/paths"
+import { handlePrice } from "@/helpers/string"
+import { TableContainer } from "./ProductList.styles"
 
 const mapStateToProps = (state: AppState) => ({
   productList: state.productList.productList
@@ -29,7 +29,7 @@ const ProductList = (props: Props) => {
     <MainLayout>
       <h2>Product List</h2>
       <TableContainer>
-        <table className='table table-striped'>
+        <table className="table table-striped">
           <thead>
             <tr>
               <th>#</th>
@@ -48,7 +48,7 @@ const ProductList = (props: Props) => {
                 <td>{handlePrice(product.price)}</td>
                 <td>
                   <Link
-                    className='btn btn-primary'
+                    className="btn btn-primary"
                     to={PATH.PRODUCT + `/${product.id}`}
                   >
                     Detail
