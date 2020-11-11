@@ -43,21 +43,8 @@ module.exports = (env, agrv) => {
       rules: [
         {
           test: /\.(ts|tsx)$/,
-          use: {
-            loader: "babel-loader",
-            options: {
-              presets: [
-                "@babel/preset-env",
-                "@babel/preset-react",
-                "@babel/preset-typescript"
-              ]
-            }
-          },
+          use: ["ts-loader", "eslint-loader"],
           exclude: /node_modules/
-        },
-        {
-          test: /\.(ts|tsx)$/,
-          loader: "eslint-loader"
         },
         {
           test: /\.(s[ac]ss|css)$/,
