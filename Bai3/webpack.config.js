@@ -119,8 +119,5 @@ module.exports = (env, agrv) => {
     performance: {
       maxEntrypointSize: 800000
     }
-    // optimization: {
-    //   minimize: true
-    // }
   }
 }
