@@ -34,7 +34,7 @@ module.exports = (env, agrv) => {
     new CompressionPlugin({
       test: /\.(css|js|html|svg)$/
     }),
-    new BundleAnalyzerPlugin()
+    // new BundleAnalyzerPlugin()
   ]
 
   return {
