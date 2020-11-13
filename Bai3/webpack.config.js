@@ -11,6 +11,7 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
 
 module.exports = (env, agrv) => {
   const isDev = agrv.mode === "development"
+  const isAnalyze = env && env.analyze
   const basePlugins = [
     new Dotenv(),
     new HtmlWebpackPlugin({
@@ -20,7 +21,8 @@ module.exports = (env, agrv) => {
       patterns: [
         { from: "public/favicon.ico", to: "" },
         { from: "public/manifest.json", to: "" },
-        { from: "public/robots.txt", to: "" }
+        { from: "public/robots.txt", to: "" },
+        { from: "public/logo192.png", to: "" }
       ]
     }),
     new MiniCssExtractPlugin({
@@ -28,14 +30,16 @@ module.exports = (env, agrv) => {
     }),
     new webpack.ProgressPlugin()
   ]
-  const prodPlugins = [
+  let prodPlugins = [
     ...basePlugins,
     new CleanWebpackPlugin(),
     new CompressionPlugin({
       test: /\.(css|js|html|svg)$/
-    }),
-    // new BundleAnalyzerPlugin()
+    })
   ]
+  if (isAnalyze) {
+    prodPlugins = [...prodPlugins, new BundleAnalyzerPlugin()]
+  }
 
   return {
     entry: "./src/index.tsx",
