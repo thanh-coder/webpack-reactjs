@@ -22,7 +22,9 @@ module.exports = (env, agrv) => {
         { from: "public/favicon.ico", to: "" },
         { from: "public/manifest.json", to: "" },
         { from: "public/robots.txt", to: "" },
-        { from: "public/logo192.png", to: "" }
+        { from: "public/logo192.png", to: "" },
+        { from: "public/logo512.png", to: "" },
+        { from: "public/_redirects", to: "" }
       ]
     }),
     new MiniCssExtractPlugin({
