@@ -19,12 +19,14 @@ module.exports = (env, agrv) => {
     }),
     new CopyPlugin({
       patterns: [
-        { from: "public/favicon.ico", to: "" },
-        { from: "public/manifest.json", to: "" },
-        { from: "public/robots.txt", to: "" },
-        { from: "public/logo192.png", to: "" },
-        { from: "public/logo512.png", to: "" },
-        { from: "public/_redirects", to: "" }
+        {
+          from: "**/*",
+          globOptions: {
+            ignore: ["index.html"]
+          },
+          to: "",
+          context: path.resolve("public")
+        }
       ]
     }),
     new MiniCssExtractPlugin({
