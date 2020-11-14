@@ -99,7 +99,7 @@ module.exports = (env, agrv) => {
     },
     output: {
       path: path.resolve("build"),
-      publicPath: "",
+      publicPath: "/",
       filename: "static/js/main.[contenthash:6].js",
       environment: {
         arrowFunction: false,
