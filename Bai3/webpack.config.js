@@ -121,7 +121,8 @@ module.exports = (env, agrv) => {
       port: 3000,
       hot: true,
       watchContentBase: true,
-      historyApiFallback: true
+      historyApiFallback: true,
+      open: true
     },
     plugins: isDev ? basePlugins : prodPlugins,
     performance: {
