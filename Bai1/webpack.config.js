@@ -3,13 +3,13 @@ const path = require('path')
 module.exports = (env, agrv) => {
   const isDev = agrv.mode === 'development'
   return {
-    entry: './src/index.js',
+    entry: './src/index.js', //nơi chứa một hay nhiều các file đầu vào. Ở đây mình dùng fileindex.js. Vì ở trong file này mình import mọi file khác vào mà 🙂
     module: {
-      rules: [
+      rules: [ // Nhận vào một array. Đây là nơi chứa các loader
         {
-          test: /\.(js|jsx)$/,
-          exclude: /(node_modules|bower_components)/,
-          use: {
+          test: /\.(js|jsx)$/, // Nhận vào một Regex để xác định kiểu file
+          exclude: /(node_modules|bower_components)/, //  Nhận vào một regex để loader loại trừ ra những file này
+          use: { // Nhận vào một object hoặc một array chứa thông tin loader
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env']
@@ -43,7 +43,7 @@ module.exports = (env, agrv) => {
         }
       ]
     },
-    resolve: { extensions: ['.js', '.jsx'] },
+    resolve: { extensions: ['.js', '.jsx'] },//  Nơi chứa thứ tự ưu tiên khi import các file.
     output: {
       path: path.resolve('dist'), // Nhận vào một string là đường dẫn tuyệt đối đến thư mục sau khi build
       publicPath: '../dist/', // Chứa đường dẫn tương đối mà từ file index.html trỏ đến các file trong thư mục dist sau khi build
