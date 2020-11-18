@@ -49,7 +49,7 @@ module.exports = (env, agrv) => {
     output: {
       path: path.resolve('dist'),
       publicPath: '',
-      filename: 'bundle.[hash:6].js',
+      filename: 'bundle.[contenthash:6].js',
       environment: {
         arrowFunction: false,
         bigIntLiteral: false,
